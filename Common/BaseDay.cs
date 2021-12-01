@@ -2,16 +2,16 @@
 
 namespace AoCRunner.Common
 {
-    internal abstract class Day
+    internal abstract class BaseDay
     {
         public abstract int Year { get; }
         public abstract int DayNumber { get; }
-        protected abstract void ExecuteDay(byte[] input);
+        protected abstract void Run(byte[] input);
          
         protected string PartA { get; set; } = default!;
         protected string PartB { get; set; } = default!;
 
-        protected void Dump(char part, object output) =>
+        protected void Print(char part, object output) =>
             _output.Add($"Year {Year}, Day {DayNumber}, Part {part}: {output}");
 
         private readonly List<string> _output = new List<string>();
@@ -36,17 +36,18 @@ namespace AoCRunner.Common
 
             var input = File.ReadAllBytes(inputFile);
 
-            ExecuteDay(null!);
+            // For not including JIT time when running for the first time.
+            // This in order to get more accurate results
+            Run(null!);
 
-            var sw = new Stopwatch();
-            sw.Start();
-            ExecuteDay(input);
+            var sw = Stopwatch.StartNew();
+            Run(input);
             sw.Stop();
 
             if (!_output.Any())
             {
-                Dump('A', PartA);
-                Dump('B', PartB);
+                Print('A', PartA);
+                Print('B', PartB);
             }
 
             if (Year != 0)

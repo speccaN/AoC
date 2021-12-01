@@ -1,9 +1,7 @@
 ﻿using AoCRunner.Common;
 
-internal class Day01 : Day
+internal class Day01 : BaseDay
 {
-    //int[] input = File.ReadAllLines($"./Days/{nameof(Day01)}/input.txt").Select(int.Parse).ToArray();
-
     public override int Year => 2021;
 
     public override int DayNumber => 1;
@@ -45,7 +43,7 @@ internal class Day01 : Day
         //return x.Zip(x.Skip(1)).Aggregate(0, (acc, itm) => itm.Second.Sum() > itm.First.Sum() ? acc + 1 : acc);
     }
 
-    protected override void ExecuteDay(byte[] input)
+    protected override void Run(byte[] input)
     {
         if (input == null) return;
 

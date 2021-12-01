@@ -67,11 +67,11 @@ public static class Program
         }
     }
 
-    private static IEnumerable<Day> GetDays() =>
+    private static IEnumerable<BaseDay> GetDays() =>
 #pragma warning disable CS8619 // Nullability of reference types in value doesn't match target type.
         Assembly.GetExecutingAssembly().GetTypes()
-        .Where(w => w.BaseType == typeof(Day))
-        .Select(s => Activator.CreateInstance(s) as Day)
+        .Where(w => w.BaseType == typeof(BaseDay))
+        .Select(s => Activator.CreateInstance(s) as BaseDay)
         .OrderBy(o => o!.Year)
         .ThenBy(o => o!.DayNumber)
         .ToArray();
