@@ -11,5 +11,7 @@ namespace AoCRunner.Common
         public static string[] GetLines(this byte[] input, StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries) =>
             GetString(input)
                 .Split(_splitChars, options);
+
+        public static int[] GetIntArray(this byte[] input) => GetString(input).Split(",").Select(int.Parse).ToArray();
     }
 }

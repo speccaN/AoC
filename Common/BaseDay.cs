@@ -5,7 +5,7 @@ namespace AoCRunner.Common
     internal abstract class BaseDay
     {
         public abstract int Year { get; }
-        public abstract int DayNumber { get; }
+        public virtual int DayNumber => int.Parse(new string(GetType().Name.Where(char.IsDigit).ToArray()));
         protected abstract void Run(byte[] input);
          
         protected string PartA { get; set; } = default!;
