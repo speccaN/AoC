@@ -27,8 +27,8 @@ namespace AoCRunner._2021
                     var isLow = true;
                     foreach (var (x, y) in dirs)
                     {
-                        var rr = row + x;
-                        var cc = col + y;
+                        var rr = row + y;
+                        var cc = col + x;
 
                         // Check bounds
                         if (!(0 <= rr && rr < rows && 0 <= cc && cc < cols))
@@ -56,8 +56,8 @@ namespace AoCRunner._2021
                     var is_low = true;
                     foreach (var (x, y) in dirs)
                     {
-                        var rr = row + x;
-                        var cc = col + y;
+                        var rr = row + y;
+                        var cc = col + x;
 
                         // Check bounds
                         if (!(0 <= rr && rr < rows && 0 <= cc && cc < cols))
@@ -95,8 +95,8 @@ namespace AoCRunner._2021
                     foreach (var (x, y) in dirs)
                     {
                         var (rr, cc) = row_col;
-                        rr += x;
-                        cc += y;
+                        rr += y;
+                        cc += x;
 
                         // Check bounds
                         if (!(0 <= rr && rr < rows && 0 <= cc && cc < cols))
