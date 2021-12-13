@@ -54,7 +54,7 @@ public static class Program
 
         const int YearAlignment = -9;
         const int DayAlignment = 2;
-        const int TimeAlignment = 9;
+        const int TimeAlignment = 14;
         foreach (var g in days.GroupBy(grp => grp.Year))
         {
             Console.WriteLine(
